@@ -1,0 +1,15 @@
+JSX rules 
+tags must be closed
+style={{"height":"value"}}
+
+function Ashu(){
+
+return (
+    <div>
+      <button>
+      <button>
+    </div>
+)
+}
+
+JSX 
