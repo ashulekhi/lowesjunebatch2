@@ -1,3 +1,4 @@
+
 JSX rules 
 tags must be closed
 style={{"height":"value"}}
@@ -13,3 +14,25 @@ return (
 }
 
 JSX 
+
+Userlist -- list of users 
+
+<Userlist data={listofusers} mode="admin" />
+<Userlist data={listofusers} mode="meeting" />
+
+function Userlist({data,mode}){
+  if(mode=="meeting){
+    return(
+       <Cards View  />
+    )
+  }
+  else{
+    return (
+      <Table View />
+    )
+  }
+}
+
+Admin  
+
+Meet
