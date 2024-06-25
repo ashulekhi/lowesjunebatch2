@@ -36,3 +36,26 @@ function Userlist({data,mode}){
 Admin  
 
 Meet
+
+
+Event handling in react 
+
+types 
+click 
+minimize 
+maximize 
+closes 
+cut 
+copy 
+save an image 
+
+onEvenName={function which we want to call }
+
+I REPEAT we will only pass funtion name we will not call the function 
+onClick={getCabs}
+onClick= {getCabs()} // this is wrong
+
+onChange={handleName}
+function handleName(event){
+
+}

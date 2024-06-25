@@ -1,3 +1,4 @@
+import AddCake from "./Addcake";
 import Admin from "./Admin";
 import Cake from "./Cake";
 import Cakelist from "./Cakelist";
@@ -7,7 +8,7 @@ import Navbar from "./Navbar";
 import User from "./User";
 import Userlist from "./Userlist";
 
-export default function Home() {
+export default function Home(props) {
     var cake1 = {
         name:"Choco Truffle",
         image:"chocotruffle.jpg",
@@ -16,10 +17,7 @@ export default function Home() {
     }
     return (
         <div>
-            <Navbar />
-            <Carousel />
-            <Admin />
-            <Meeting />
+           <Cakelist />
         </div>
     )
 }

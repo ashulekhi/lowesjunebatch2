@@ -4,8 +4,12 @@ export default function Cake(props) {
   if(props.data.eggless){
     label = <label className="alert alert-success">Eggless</label>
   }
+  function removeItem(){
+    props.removeCake(props.data.name)
+  }
   return (
     <div class="card m-3" style={{ width: "20rem" }}>
+      <button onClick={removeItem} className="btn btn-danger">X</button>
       <img style={{height:"18rem"}} src={props.data?.image} />
       <div class="card-body">
         <h5 class="card-title">{props.data?.name}</h5>
