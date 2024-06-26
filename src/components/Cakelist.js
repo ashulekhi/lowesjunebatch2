@@ -26,8 +26,8 @@ export default function Cakelist() {
 
     return (
         <div className="row m-2">
-            {cakes.map(function (each) {
-                return <Cake removeCake={removeCake} data={each} />
+            {cakes.map(function (each,index) {
+                return <Cake key={index} removeCake={removeCake} data={each} />
             })}
         </div>
     )

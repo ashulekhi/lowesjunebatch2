@@ -1,6 +1,10 @@
 import User from "./User"
 
-export default function NewUserList({ list, mode }) {
+export default function NewUserList({ list, mode , removeUser }) {
+    function deleteUser(index){
+        alert("user wants to delete row number"+index)
+        removeUser(index)
+    }
     if (mode == "ADMIN") {
         return (
             <div>
@@ -15,14 +19,14 @@ export default function NewUserList({ list, mode }) {
                     </thead>
                     <tbody>
 
-                        {list.map((function (each) {
+                        {list.map((function (each , index) {
                             return (
-                                <tr>
+                                <tr key={index}>
                                     <th scope="row">1</th>
                                     <td>{each.name}</td>
                                     {each.gender == "female" && <td><img style={{ height: "4rem" }} src="femaleicon.png"></img></td>}
                                     {each.gender == "male" && <td><img style={{ height: "4rem" }} src="usericon2.png"></img></td>}
-                                    <td><button className="btn btn-danger">X</button></td>
+                                    <td><button onClick={deleteUser.bind(null,index)} className="btn btn-danger">X</button></td>
                                 </tr>
                             )
                         }))}

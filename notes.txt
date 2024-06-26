@@ -59,3 +59,19 @@ onChange={handleName}
 function handleName(event){
 
 }
+
+Data binding -- 
+Props
+conditional redndering 
+lists rendering  
+Event handling 
+Child to parent communication 
+References in react
+state 
+useState()
+
+UseEffect()
+context 
+custom hooks
+api calls 
+routing

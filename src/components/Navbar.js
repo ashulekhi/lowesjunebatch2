@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom"
+
 export default function Navbar(){
   var projectName = "Lowe's Cake Cafe"
-  var isloggedin = true
+  var isloggedin = false
    return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">{projectName}</a>
+    <Link class="navbar-brand" to="/">{projectName}</Link>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -19,7 +21,8 @@ export default function Navbar(){
        
       </ul>
       <form class="d-flex" role="search">
-      {isloggedin==false &&  <button class="btn btn-primary" type="button">Login</button>}
+      {isloggedin==false &&  <Link to="/login"><button class="btn btn-primary" type="button">Login</button></Link>}
+        {isloggedin==true && <Link to="/admin"> <button class="btn btn-warning" type="button">Admin Panel</button> </Link>}
         {isloggedin==true && <button class="btn btn-danger" type="button">Logout</button>}
       </form>
     </div>
