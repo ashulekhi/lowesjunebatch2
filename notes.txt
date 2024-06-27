@@ -96,3 +96,17 @@ response - {name,email,role,token}
 
 
 process.env.REACT_APP_APIURL
+
+App u are passing props to Home component ?
+
+From home to cakelist 
+
+From Cakelist to cake 
+
+User name is into app 
+
+app=>home=>Cakelist=>Cake
+Props drilling --- 
+
+
+Context is used to pass the value from parent to child without drilling it to each level 

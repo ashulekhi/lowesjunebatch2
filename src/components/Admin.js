@@ -1,7 +1,16 @@
+import { useEffect } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 
 export default function Admin(){
+
+    useEffect(function(){
+        alert("Rendered")
+
+        return function(){
+            alert("Bye bye admin")
+        }
+    })
 
     return (
         <>

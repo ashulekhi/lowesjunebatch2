@@ -1,8 +1,9 @@
+import { useSelector } from "react-redux"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Navbar(){
   var projectName = "Lowe's Cake Cafe"
-  var isloggedin = false
+  var isloggedin = useSelector(function(state){return state.AuthReducer.isloggedin})
   var navigate = useNavigate()
   var searchtext
   function handleText(e){

@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Login(){
   var navigate = useNavigate()
+  var dispatch = useDispatch()
   var user = {}
   function handleEmail(e){
     user.email = e.target.value
@@ -20,6 +22,10 @@ function handlePassword(e){
         }).then(function(response){
             if(response.data.token){
               localStorage.token = response.data.token
+  // var dispatch = useDispatch()
+              dispatch({
+                type:"LOGIN_SUCCESS"
+              })
                 navigate("/")
             }
         })
