@@ -19,6 +19,7 @@ function handlePassword(e){
             data:user
         }).then(function(response){
             if(response.data.token){
+              localStorage.token = response.data.token
                 navigate("/")
             }
         })

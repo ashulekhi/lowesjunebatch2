@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Cake(props) {
   var label 
   console.log("props" , props)
@@ -10,7 +12,7 @@ export default function Cake(props) {
   return (
     <div class="card m-3" style={{ width: "23rem" }}>
       {/* <button onClick={removeItem} className="btn btn-danger">X</button> */}
-      <img style={{height:"16rem"}} src={props.data?.image} />
+     <Link to={"/details/"+props.data.cakeid}> <img style={{height:"16rem"}} src={props.data?.image} /></Link>
       <div class="card-body">
         <h5 class="card-title">{props.data?.name}</h5>
         <p class="card-text">{props.data?.price}</p>

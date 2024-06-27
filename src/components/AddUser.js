@@ -5,7 +5,7 @@ export default function AddUser(props) {
     var [user,setUser] = useState({})
 
     useEffect(function(){
-        setUser(props.user)
+        setUser(props.user || {})
     },[props])
   
     function handleGender(e){

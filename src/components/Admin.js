@@ -1,34 +1,26 @@
-import { useState } from "react";
-import AddUser from "./AddUser";
-import NewUserList from "./NewUserlist";
-import UserTable from "./Usertable";
+import { Link, Outlet } from "react-router-dom";
+
 
 export default function Admin(){
-var [userdata,setUserdata] = useState([])
-const sampleData = [
-    { name: 'John Doe', age: 30, email: 'john@example.com' },
-    { name: 'Jane Smith', age: 25, email: 'jane@example.com' },
-    { name: 'Alice Johnson', age: 35, email: 'alice@example.com' }
-  ];
-var [user,setUser] = useState({})
-  function addUser(user){
-    console.log("user added by add user component" , user)
-    userdata=[...userdata,{...user}]
-    setUserdata(userdata)
-    setUser({})
-  }
 
-  function removeUser(index){
-        userdata.splice(index,1)
-        setUserdata([...userdata])
-  }
-  function updateUser(index){
-    console.log(">>>>>>>>>>>>" , userdata[index] )
-    setUser({...userdata[index]})
-}
     return (
-        <div>
-                <h1>Admin Panel</h1>
+        <>
+        <h1>Admin Panel</h1>
+        <div className="row">
+            <div className="col-4">
+                <div>
+                    <Link to="/admin/allusers">All Users</Link>
+                </div>
+                <div>
+                    <Link to="/admin/adduser">Add User</Link>
+                </div>
+            </div>
+            <div className="col-8">
+                <Outlet />
+            </div>
+               
         </div>
+        </>
+       
     )
 }

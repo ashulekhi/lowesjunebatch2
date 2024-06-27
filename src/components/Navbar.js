@@ -1,8 +1,17 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Navbar(){
   var projectName = "Lowe's Cake Cafe"
   var isloggedin = false
+  var navigate = useNavigate()
+  var searchtext
+  function handleText(e){
+     searchtext = e.target.value
+  }
+
+  function searchCakes(){
+    navigate("/search?q="+searchtext)
+  }
    return (
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
@@ -14,8 +23,8 @@ export default function Navbar(){
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
       <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input onChange={handleText} class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+        <button onClick={searchCakes} class="btn btn-outline-success" type="button">Search</button>
       </form>
        
        
