@@ -16,9 +16,13 @@ export default function Home(props) {
         eggless:true
     }
     return (
-        <div>
-            <Carousel />
-           <Cakelist />
-        </div>
+        <>
+        <Carousel />
+        <div className="container-fluid">
+            
+            <Cakelist />
+         </div>
+        </>
+       
     )
 }

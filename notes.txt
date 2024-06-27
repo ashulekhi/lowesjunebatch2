@@ -75,3 +75,24 @@ context
 custom hooks
 api calls 
 routing
+
+Input fields with the state of our component 
+
+http://16.16.162.133/api
+
+/ to get list of cakes from backend 
+/ allcakes
+get 
+response - {data:[{name,cakeid,price,image}]}
+
+/register
+post 
+requets - {email,name,password}
+response - {message:"User Registered"} or {message:"User Already Exists"}
+
+/login
+request - {email,password}
+response - {name,email,role,token}
+
+
+process.env.REACT_APP_APIURL

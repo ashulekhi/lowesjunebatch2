@@ -1,6 +1,29 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login(){
+  var navigate = useNavigate()
+  var user = {}
+  function handleEmail(e){
+    user.email = e.target.value
+}
+function handlePassword(e){
+    user.password = e.target.value
+}
+    
+    function SignIn(){
+        axios({
+            url:"http://16.16.162.133/api/login",
+            method:"post",
+            data:user
+        }).then(function(response){
+            if(response.data.token){
+                navigate("/")
+            }
+        })
+      
+    }
     return (
         <section class="vh-100" style={{"background-color": "rgb(255,235,239)"}}>
         <div class="container py-5 h-100">
@@ -25,17 +48,17 @@ export default function Login(){
                         <h5 class="fw-normal mb-3 pb-3" style={{"letter-spacing": "1px"}}>Sign into your account</h5>
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="email" id="form2Example17" class="form-control form-control-lg" />
+                          <input onChange={handleEmail} type="email" id="form2Example17" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example17">Email address</label>
                         </div>
       
                         <div data-mdb-input-init class="form-outline mb-4">
-                          <input type="password" id="form2Example27" class="form-control form-control-lg" />
+                          <input onChange={handlePassword} type="password" id="form2Example27" class="form-control form-control-lg" />
                           <label class="form-label" for="form2Example27">Password</label>
                         </div>
       
                         <div class="pt-1 mb-4">
-                          <button data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+                          <button onClick={SignIn} data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-lg btn-block" type="button">Login</button>
                         </div>
       
                         <Link class="small text-muted" to="/forgot">Forgot password?</Link>

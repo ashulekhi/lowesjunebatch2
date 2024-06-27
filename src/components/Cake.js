@@ -8,9 +8,9 @@ export default function Cake(props) {
     props.removeCake(props.data.name)
   }
   return (
-    <div class="card m-3" style={{ width: "20rem" }}>
-      <button onClick={removeItem} className="btn btn-danger">X</button>
-      <img style={{height:"18rem"}} src={props.data?.image} />
+    <div class="card m-3" style={{ width: "23rem" }}>
+      {/* <button onClick={removeItem} className="btn btn-danger">X</button> */}
+      <img style={{height:"16rem"}} src={props.data?.image} />
       <div class="card-body">
         <h5 class="card-title">{props.data?.name}</h5>
         <p class="card-text">{props.data?.price}</p>

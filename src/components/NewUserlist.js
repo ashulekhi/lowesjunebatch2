@@ -1,9 +1,13 @@
 import User from "./User"
 
-export default function NewUserList({ list, mode , removeUser }) {
+export default function NewUserList({ list, mode , removeUser , updateUser }) {
     function deleteUser(index){
-        alert("user wants to delete row number"+index)
         removeUser(index)
+    }
+
+    function editUser(index){
+        debugger
+        updateUser(index)
     }
     if (mode == "ADMIN") {
         return (
@@ -14,6 +18,7 @@ export default function NewUserList({ list, mode , removeUser }) {
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
                             <th scope="col">Image</th>
+                            <th scope="col">Action</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -27,6 +32,7 @@ export default function NewUserList({ list, mode , removeUser }) {
                                     {each.gender == "female" && <td><img style={{ height: "4rem" }} src="femaleicon.png"></img></td>}
                                     {each.gender == "male" && <td><img style={{ height: "4rem" }} src="usericon2.png"></img></td>}
                                     <td><button onClick={deleteUser.bind(null,index)} className="btn btn-danger">X</button></td>
+                                    <td><button onClick={editUser.bind(null,index)} className="btn btn-primary">Edit</button></td>
                                 </tr>
                             )
                         }))}

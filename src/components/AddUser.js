@@ -1,15 +1,32 @@
+import { useEffect, useState } from "react"
+
 export default function AddUser(props) {
-    var user = {}
+    console.log("props" , props)
+    var [user,setUser] = useState({})
+
+    useEffect(function(){
+        setUser(props.user)
+    },[props])
+  
     function handleGender(e){
-        console.log(",,,," , e.target.value)
-        user.gender = e.target.value
+        setUser({
+            ...user,
+            gender:e.target.value
+        })
     }
     function handleName(e){
-        user.name = e.target.value
+        setUser({
+            ...user,
+            name:e.target.value
+        })
     }
 
     function addUser(){
         props.addUser(user)
+        setUser({
+            name:"",
+            gender:""
+        })
     }
     return (
         <div>
@@ -17,10 +34,10 @@ export default function AddUser(props) {
                 <h1>Add User</h1>
                 <div>
                     <label>Name</label>
-                    <input onChange={handleName} className="form-control" />
+                    <input value={user.name} onChange={handleName} className="form-control" />
                 </div>
                 <div>
-                    <select onChange={handleGender}>
+                    <select value={user.gender} onChange={handleGender}>
                         <option value="">Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>

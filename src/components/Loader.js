@@ -1,0 +1,9 @@
+import "./Loader.css"
+
+export default function(){
+    return (
+        <div className="loading">
+
+        </div>
+    )
+}
