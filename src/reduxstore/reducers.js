@@ -9,7 +9,7 @@ export function Reducer1(state={
             return state
         }
 
-        case "ADD_ADDRESS" :{
+        case "ADD_USERDETAILS" :{
             state = {...state}
             state.userdetails = action.payload
             return state
