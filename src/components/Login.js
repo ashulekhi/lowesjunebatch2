@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Login(){
+  // var isAuthencated  =  Authentication()
   var navigate = useNavigate()
   var dispatch = useDispatch()
   var user = {}
@@ -27,6 +28,8 @@ function handlePassword(e){
                 type:"LOGIN_SUCCESS"
               })
                 navigate("/")
+
+                return
             }
         })
       

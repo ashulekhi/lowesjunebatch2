@@ -109,4 +109,37 @@ app=>home=>Cakelist=>Cake
 Props drilling --- 
 
 
-Context is used to pass the value from parent to child without drilling it to each level 
+Context is used to pass the value from parent to child without drilling it to each level
+
+
+function Authentication(){
+
+}
+
+X is function
+useX()
+
+useAuthentication(){
+
+}
+
+var state = store.getState()
+state.cartitems 
+
+
+var cartitems = useSelector(state=>state.cartitems)
+
+{name,address,city,pincode,phone,cakes,price}
+/addcakeorder
+post 
+headers :{Authorization}
+
+dispatch i need to tell that i need karthikeyan's help
+
+dispatch(karthikeyan)
+
+function soujanya(){
+  return karthikeyan 
+}
+
+dispatch(soujanya())

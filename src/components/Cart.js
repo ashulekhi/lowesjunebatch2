@@ -2,11 +2,12 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import UserTable from "./Usertable"
+import { useSelector } from "react-redux"
 
 export default function Cart(){
     var params = useParams()
     var totalPrice = 0
-    var [cartitems,setCartitems] = useState()
+    var [cartitems,setCartitems] = useSelector(state=>state.cartitems)
     console.log("params" , params["*"].split("/"))
 
     function removeFromCart(){
@@ -22,7 +23,10 @@ export default function Cart(){
                 Authorization:localStorage.token
             }
         }).then((response)=>{
-            setCartitems(response.data.data)
+            // dispatch({
+            //     type:"INIT_CART_ITEMS",
+            //     payload:response.data.data
+            // })
         }).catch((errro)=>{
 
         })

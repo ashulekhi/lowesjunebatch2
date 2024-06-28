@@ -14,6 +14,10 @@ import UserTable from './components/Usertable';
 import AddUser from './components/AddUser';
 import Cakedetails from './components/Cakedetails';
 import React from 'react';
+import Checkout from './components/Checkout';
+import AddAddress from './components/Addaddress';
+import Paymentmode from './components/Paymentmode';
+import CheckoutSummary from './components/CheckoutSummary';
 
 export var NetWorth = React.createContext()
 function App() {
@@ -41,10 +45,16 @@ function App() {
           <Route path="/register" element={<Signup />} />
           <Route path="/forgot" element={<Forgot />} />
           <Route path="/search" element={<Search />} />
-          <Route path="/cart/*" element={<Cart />} />
+         {localStorage.token && <Route path="/cart/*" element={<Cart />} /> }
           <Route path="/details/:cakeid" element={<Cakedetails />} />
           <Route path="/addcake" element={<AddCake />} />
           <Route path="/*" element={<Pagenotfound />} />
+          <Route path="/checkout" element={<Checkout />}>
+              <Route path="" element={<AddAddress />} />
+              <Route path="addaddress" element={<AddAddress />} />
+              <Route path="paymentmode" element={<Paymentmode />} />
+              <Route path="checkoutsummary" element={<CheckoutSummary />} />
+          </Route>
         </Routes>
       </BrowserRouter>
 

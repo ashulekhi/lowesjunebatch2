@@ -2,17 +2,17 @@ import { useEffect, useState } from "react"
 import Cake from "./Cake"
 import axios from "axios"
 import Loader from "./Loader"
+import { useDispatch, useSelector } from "react-redux"
+import {getCakesThunkCreator } from "../reduxstore/thunks"
 
 export default function Cakelist() {
-    var [cakes,setCakes] = useState()
+    var cakes = useSelector(state=>state.cartReducer.cakes)
+    var dispatch = useDispatch()
+
     useEffect(function(){
-        axios({
-            url:process.env.REACT_APP_APIURL+"/allcakes",
-            method:"get"
-        }).then(function(response){
-            console.log("response from all cakes api" , response.data)
-            setCakes(response.data.data)
-        })
+        if(!cakes){
+            dispatch(getCakesThunkCreator())
+        }
     },[])
   
 
