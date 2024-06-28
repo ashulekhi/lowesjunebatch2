@@ -1,5 +1,4 @@
 import AddCake from "./Addcake";
-import Admin from "./Admin";
 import Cake from "./Cake";
 import Cakelist from "./Cakelist";
 import Carousel from "./Carousel";

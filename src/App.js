@@ -9,7 +9,6 @@ import Cart from './components/Cart';
 import Pagenotfound from './components/Pagenotfound';
 import Forgot from './components/Forgot';
 import Navbar from './components/Navbar';
-import Admin from './components/Admin';
 import UserTable from './components/Usertable';
 import AddUser from './components/AddUser';
 import Cakedetails from './components/Cakedetails';
@@ -18,6 +17,9 @@ import Checkout from './components/Checkout';
 import AddAddress from './components/Addaddress';
 import Paymentmode from './components/Paymentmode';
 import CheckoutSummary from './components/CheckoutSummary';
+import Myorders from './components/Myorders';
+
+var Admin = React.lazy(()=>import("./components/Admin"))
 
 export var NetWorth = React.createContext()
 function App() {
@@ -36,7 +38,7 @@ function App() {
           <Route path="/" element={<NetWorth.Provider value="300 million dollars">< Home /></NetWorth.Provider>} />
 
 
-         <Route path="/admin" element={<Admin />} >
+         <Route path="/admin" element={<React.Suspense fallback={<div>Loading...</div>}><Admin /></React.Suspense> } >
             <Route path="allusers" element={<UserTable data={sampleData} />} />
             <Route path="adduser" element={<AddUser />} />
           </Route>
@@ -44,6 +46,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Signup />} />
           <Route path="/forgot" element={<Forgot />} />
+          <Route path="/myorders" element={<Myorders />} />
           <Route path="/search" element={<Search />} />
          {localStorage.token && <Route path="/cart/*" element={<Cart />} /> }
           <Route path="/details/:cakeid" element={<Cakedetails />} />

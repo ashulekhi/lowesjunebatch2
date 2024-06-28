@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Checkout(){
     return (
@@ -6,9 +6,10 @@ export default function Checkout(){
             <div className="row">
                 <div className="col-4">
 
-                    <div>Add Address</div>
-                    <div>Payment Mode</div>
-                    <div>Checkout Summary</div>
+                    <div> <Link to="/checkout/addaddress">Add Address</Link></div>
+                    <div> <Link to="/checkout/paymentmode">Payment Mode</Link></div>
+                    <div> <Link to="/checkout/checkoutsummary">Checkout Summary</Link></div>
+                 
 
                 </div>
                 <div className="col-8">

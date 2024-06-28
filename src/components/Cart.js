@@ -2,12 +2,14 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import UserTable from "./Usertable"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import Loader from "./Loader"
 
 export default function Cart(){
+    var dispatch = useDispatch()
     var params = useParams()
     var totalPrice = 0
-    var [cartitems,setCartitems] = useSelector(state=>state.cartitems)
+    var cartitems = useSelector(state=>state.cartReducer.cartitems)
     console.log("params" , params["*"].split("/"))
 
     function removeFromCart(){
@@ -23,14 +25,16 @@ export default function Cart(){
                 Authorization:localStorage.token
             }
         }).then((response)=>{
-            // dispatch({
-            //     type:"INIT_CART_ITEMS",
-            //     payload:response.data.data
-            // })
+            dispatch({
+                type:"INIT_CART_ITEMS",
+                payload:response.data.data
+            })
         }).catch((errro)=>{
 
         })
     },[])
+    if(!cartitems)
+        return <Loader />
     return (
         <div className="container">
         <h1>Cart Items </h1>
@@ -65,7 +69,7 @@ export default function Cart(){
         </table>
         <div>
             <h3>Total Price : {totalPrice}</h3>
-        <Link to="/checkout"><button style={{float:"right"}} className="btn btn-warning mt-3">Checkout</button></Link>
+        <Link to="/checkout"><button onClick={()=>{dispatch({type:"SET_CART_PRICE",payload:totalPrice})}} style={{float:"right"}} className="btn btn-warning mt-3">Checkout</button></Link>
         </div>
     </div>
     )

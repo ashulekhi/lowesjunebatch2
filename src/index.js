@@ -7,6 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.js"
 import { Provider } from 'react-redux';
 import Adibas from './reduxstore/store';
+import "./interceptors"
+import "./components/class"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

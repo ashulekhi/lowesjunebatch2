@@ -143,3 +143,31 @@ function soujanya(){
 }
 
 dispatch(soujanya())
+
+function square(num){
+  return num*num
+}
+
+var sq = num=>num*num
+
+
+render component in testing env in render function
+
+var screen  = render (<Component />)
+React fragments 
+<> 
+
+
+</>
+
+Re rendering --- we need to se waht all the componens are re rednering along 
+
+<input > -- chanigng the state of the component
+<input />
+
+<Firstname />
+<Secondname />
+
+Memoization --- we can stop re rendering if the props are passed same to that component 
+
+var SecondN

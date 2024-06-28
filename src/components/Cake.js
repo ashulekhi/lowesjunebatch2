@@ -3,10 +3,7 @@ import { Link } from "react-router-dom"
 import { NetWorth } from "../App"
 
 export default function Cake(props) {
-  var paisa = useContext(NetWorth)
-  console.log("paisa , paisa" , paisa)
   var label 
-  console.log("props" , props)
   if(props.data.eggless){
     label = <label className="alert alert-success">Eggless</label>
   }
@@ -14,10 +11,9 @@ export default function Cake(props) {
     props.removeCake(props.data.name)
   }
   return (
-    <div class="card m-3" style={{ width: "23rem" }}>
-      {paisa}
+    <div class="card m-3" style={{ width: "19rem" }}>
       {/* <button onClick={removeItem} className="btn btn-danger">X</button> */}
-     <Link to={"/details/"+props.data.cakeid}> <img style={{height:"16rem"}} src={props.data?.image} /></Link>
+     <Link to={"/details/"+props.data.cakeid}> <img className="img-fluid" style={{height:"16rem"}} src={props.data?.image} /></Link>
       <div class="card-body">
         <h5 class="card-title">{props.data?.name}</h5>
         <p class="card-text">{props.data?.price}</p>

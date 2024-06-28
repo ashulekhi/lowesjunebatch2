@@ -29,6 +29,12 @@ export function Reducer2(state={
             state.cakes = action.payload
             return state
         }
+        case "SET_CART_PRICE":{
+            state = {...state}
+            state.price = action.payload
+            return state
+        }
+
         case "INIT_CART_ITEMS":{
             state = {...state}
             state.cartitems = action.payload
